@@ -572,9 +572,8 @@
           // remove the keyboard: end
 
           // event for input element trigger change: begin
-          var changeEvent = new Event('input', {
+          var changeEvent = new Event('change', {
             'bubbles': true,
-            'cancelable': true,
           });
           // event for input element trigger change: end
 
@@ -616,12 +615,14 @@
 
           // keys click listeners: begin
           var keysClickListeners = function (input) {
+            console.log('The input:', input);
             // each key click listener: begin
             var eachKeyElm = window.document.querySelectorAll('.kioskboard-key');
             if (eachKeyElm && eachKeyElm.length > 0) {
               for (var ekIndex = 0; ekIndex < eachKeyElm.length; ekIndex++) {
                 var keyElm = eachKeyElm[ekIndex];
                 keysEventListeners(keyElm, function (e) {
+                  console.log('Key:', keyElm);
                   e.preventDefault();
 
                   // check input max & maxlength
@@ -661,6 +662,7 @@
                     }
 
                     // input trigger change event for update the value
+                    console.log('Dispatch');
                     input.dispatchEvent(changeEvent);
                   }
                 });

@@ -571,7 +571,7 @@
           // remove the keyboard: end
 
           // event for input element trigger change: begin
-          var changeEvent = new Event('change', {
+          var changeEvent = new Event('input', {
             'bubbles': true,
             'cancelable': true,
           });

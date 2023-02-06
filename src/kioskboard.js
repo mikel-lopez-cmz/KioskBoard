@@ -571,7 +571,7 @@
           // remove the keyboard: end
 
           // event for input element trigger change: begin
-          var changeEvent = new Event('change', {
+          var changeEvent = new Event('input', {
             'bubbles': true,
           });
           // event for input element trigger change: end
@@ -652,8 +652,11 @@
                     // add value by index
                     theInputValArray.splice(theInputSelIndex, 0, keyValArr[keyValIndex]);
 
+                    var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                    nativeInputValueSetter.call(input, theInputValArray.join(''));
+
                     // update input value
-                    input.value = theInputValArray.join('');
+                    // input.value = theInputValArray.join('');
 
                     // set next selection index
                     if (input.type !== 'number') {

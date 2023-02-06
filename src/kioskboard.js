@@ -573,6 +573,7 @@
           // event for input element trigger change: begin
           var changeEvent = new Event('input', {
             'bubbles': true,
+            'cancelable': true,
           });
           // event for input element trigger change: end
 

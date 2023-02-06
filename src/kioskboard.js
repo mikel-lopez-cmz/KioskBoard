@@ -598,6 +598,7 @@
 
           // keys event listeners: begin
           var keysEventListeners = function (keyElement, onClickHandler) {
+            console.log('Key', keyElement);
             if (keyElement) {
               var isTouchableDevice = 'ontouchend' in window || window.navigator.maxTouchPoints > 0;
 
@@ -651,11 +652,11 @@
                     // add value by index
                     theInputValArray.splice(theInputSelIndex, 0, keyValArr[keyValIndex]);
 
-                    var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-                    nativeInputValueSetter.call(input, theInputValArray.join(''));
+                    // var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                    // nativeInputValueSetter.call(input, theInputValArray.join(''));
 
                     // update input value
-                    // input.value = theInputValArray.join('');
+                    input.value = theInputValArray.join('');
 
                     // set next selection index
                     if (input.type !== 'number') {

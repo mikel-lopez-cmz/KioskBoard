@@ -461,7 +461,7 @@
                 numpadKeysContent += eachKey3;
               }
             }
-            keysRowElements += '<div class="kioskboard-row kioskboard-row-numpad">' + numpadKeysContent + backspaceKey + dotKey + enterKey + '</div>';
+            keysRowElements += '<div class="kioskboard-row kioskboard-row-numpad">' + numpadKeysContent + dotKey +  backspaceKey + enterKey + '</div>';
           }
           // keyboard type is "numpad": end
 

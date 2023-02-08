@@ -654,10 +654,10 @@
 
                     // update input or textarea value
                     var nativeValueSetter;
-                    if (input.tagName.toLowerCase === 'input') {
+                    if (input.tagName.toLowerCase() === 'input') {
                       nativeValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
                     }
-                    if (input.tagName.toLowerCase === 'textarea') {
+                    if (input.tagName.toLowerCase() === 'textarea') {
                       nativeValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
                     }
 
@@ -716,10 +716,10 @@
 
                 // update input or textarea value
                 var nativeValueSetter;
-                if (input.tagName.toLowerCase === 'input') {
+                if (input.tagName.toLowerCase() === 'input') {
                   nativeValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
                 }
-                if (input.tagName.toLowerCase === 'textarea') {
+                if (input.tagName.toLowerCase() === 'textarea') {
                   nativeValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
                 }
 

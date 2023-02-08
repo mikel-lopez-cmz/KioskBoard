@@ -653,12 +653,16 @@
                     // add value by index
                     theInputValArray.splice(theInputSelIndex, 0, keyValArr[keyValIndex]);
 
-                    // update input value
-                    console.log('TagName', input.tagName.toLowerCase());
-                    console.log('Type', input.type);
-                    var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
-                    nativeInputValueSetter.call(input, theInputValArray.join(''));
-                    // input.value = theInputValArray.join('');
+                    // update input or textarea value
+                    var nativeValueSetter;
+                    if (input.tagName.toLowerCase === 'input') {
+                      nativeValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                    }
+                    if (input.tagName.toLowerCase === 'textarea') {
+                      nativeValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
+                    }
+
+                    nativeValueSetter.call(input, theInputValArray.join(''));
 
                     // set next selection index
                     if (input.type !== 'number') {
@@ -711,10 +715,16 @@
                 // remove value by index
                 theInputValArray.splice((theInputSelIndex - 1), 1);
 
-                // update input value
-                var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
-                nativeInputValueSetter.call(input, theInputValArray.join(''));
-                // input.value = theInputValArray.join('');
+                // update input or textarea value
+                var nativeValueSetter;
+                if (input.tagName.toLowerCase === 'input') {
+                  nativeValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                }
+                if (input.tagName.toLowerCase === 'textarea') {
+                  nativeValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
+                }
+
+                nativeValueSetter.call(input, theInputValArray.join(''));
 
                 // set next selection index
                 if (input.type !== 'number') {

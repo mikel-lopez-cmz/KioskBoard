@@ -654,7 +654,7 @@
                     theInputValArray.splice(theInputSelIndex, 0, keyValArr[keyValIndex]);
 
                     // update input value
-                    var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                    var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
                     nativeInputValueSetter.call(input, theInputValArray.join(''));
                     // input.value = theInputValArray.join('');
 
@@ -710,7 +710,7 @@
                 theInputValArray.splice((theInputSelIndex - 1), 1);
 
                 // update input value
-                var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
                 nativeInputValueSetter.call(input, theInputValArray.join(''));
                 // input.value = theInputValArray.join('');
 

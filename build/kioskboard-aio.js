@@ -654,6 +654,8 @@
                     theInputValArray.splice(theInputSelIndex, 0, keyValArr[keyValIndex]);
 
                     // update input value
+                    console.log('TagName', input.tagName.toLowerCase());
+                    console.log('Type', input.type);
                     var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
                     nativeInputValueSetter.call(input, theInputValArray.join(''));
                     // input.value = theInputValArray.join('');

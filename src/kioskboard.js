@@ -709,9 +709,9 @@
                 theInputValArray.splice((theInputSelIndex - 1), 1);
 
                 // update input value
-                var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
-                nativeInputValueSetter.call(input, theInputValArray.join(''));
-                // input.value = theInputValArray.join('');
+                // var nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+                // nativeInputValueSetter.call(input, theInputValArray.join(''));
+                input.value = theInputValArray.join('');
 
                 // set next selection index
                 if (input.type !== 'number') {
